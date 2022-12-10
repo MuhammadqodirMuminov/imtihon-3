@@ -52,18 +52,21 @@ window.addEventListener("DOMContentLoaded", () => {
         elForm.addEventListener("submit", (evt) => {
             evt.preventDefault();
 
+            
             const search = elSearch.value.trim(),
-                newRegx = new RegExp(search, "gi");
-
+            newRegx = new RegExp(search, "gi");
+            
             const filterPost = data.filter((item) => {
                 return item.name.match(newRegx);
             });
-
+            
             if (filterPost.length > 0) {
                 renderpost(filterPost);
             } else {
                 alert(" Nothing is found ? . Please try again !");
             }
+            
+            elSearch.value = "";
         });
     }
     formEvent();
